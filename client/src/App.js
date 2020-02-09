@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.scss';
 import Task from "./components/Task/Task"
+import Board from './components/Board/Board'
+import Card from './components/Card/Card'
 
 class ToDoList extends React.Component  {
   state = {
@@ -81,17 +83,23 @@ class ToDoList extends React.Component  {
           <button className="App__form-button" type="submit">Add</button>
         </form>
         <div className="App__container">
-          <div className="App__map">
-            <h1>Project 1</h1>
-            <div className="App__map__container">
-              {this.state.itemList ? this.state.itemList.map(list => (<Task key={list.key} taskDetails={list} deleteItem={this.deleteItem} updateItem={this.updateItem}/>)) : null}
-            </div>
+          <div>
+          <h1>Project 1</h1>
+          <Board className="App__map">
+              {this.state.itemList ? this.state.itemList.map(list => (
+              <Card id={list.key} className="card" draggable="true">
+                <Task key={list.key} taskDetails={list} deleteItem={this.deleteItem} updateItem={this.updateItem}></Task>
+              </Card>
+              )) : null}
+          </Board>
           </div>
-          <div className="App__map2">
-            <h1>Project 2</h1>
-            <div className="App__map2__container">
-
-            </div>
+          <div>
+          <h1>Project 2</h1>
+          <Board className="App__map2">
+            <Card id="card-2" className="card" draggable="true">
+                
+            </Card>
+          </Board>
           </div>
         </div>
       </div>
