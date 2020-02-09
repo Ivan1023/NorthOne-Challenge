@@ -1,12 +1,27 @@
 import React from 'react';
 import '../Task/Task.scss'
 import kabab from '../../assets/Icons/Icon-kebab-default.svg'
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css"
 
 class Task extends React.Component {
     container = React.createRef();
     state = {
         open: false,
+        startDate: new Date()
     };
+
+    handleChange = date => {
+        this.setState({
+            startDate: date
+        });
+    }
+
+    handleSelect = date => {
+        this.setState({
+            startDate:date
+        });
+    }
 
     handleButtonClick = () => {
         this.setState(state => {
@@ -37,19 +52,30 @@ class Task extends React.Component {
         const items = this.props.taskDetails
     
         return (
-            <div>
-                <p>Task List</p>
-                <p>{items.title}</p>
-                <p>{items.description}</p>
-                <div ref={this.container}>
-                <img src={kabab} onClick={this.handleButtonClick} alt="3 dots"  />
-                {this.state.open && (
+            <div className="task">
                 <div>
-                    <button onClick={() => this.props.updateItem(items.key)} >Edit</button>
-                    <button onClick={() => this.props.deleteItem(items.key)}>Remove</button>
+                    <p className="task__title">{items.title}</p>
+                    <p className="task__description">{items.description}</p>
                 </div>
-                )}
-            </div>
+                <div ref={this.container} className="task__kabab">
+                    <img src={kabab} onClick={this.handleButtonClick} alt="3 dots"  />
+                    {this.state.open && (
+                    <div className="task__dropdown">
+                        <button onClick={() => this.props.updateItem(items.key)} >Edit</button>
+                        <button onClick={() => this.props.deleteItem(items.key)}>Remove</button>
+                    </div>
+                    )}
+                </div>
+                <div className="task__due">
+                    <DatePicker selected={this.state.startDate} onSelect={this.handleSelect} onchange={this.handleChange}/>
+                    <select>
+                        <option>OPEN</option>
+                        <option>PENDING</option>
+                        <option>IN PROGRESS</option>
+                        <option>COMPLETED</option>
+                        <option>CLOSED</option>
+                    </select>
+                </div>
             </div>
         )
     }

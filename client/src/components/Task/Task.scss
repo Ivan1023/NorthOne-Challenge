@@ -1,0 +1,46 @@
+select {
+    outline: none;
+}
+
+.task {
+    position: relative;
+    background-color: #f8fafd;
+    width: 250px;
+    height: 300px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 15px;
+
+    // &__description {
+    //     margin: 50px 0 0 0;
+    // }
+
+    &__kabab {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    &__dropdown {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 20px;
+        right: -60px;
+        border: 1px solid rgb(192, 191, 191);
+        border-radius: 5px;
+        background-color: white;
+    }
+
+    &__due {
+        position: absolute;
+        bottom: 0;
+        left: 10px;
+
+        &__container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

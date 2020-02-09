@@ -1,4 +1,75 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #185d8a;
+
+  &__header {
+    margin: 0;
+    color: white;
+    padding: 50px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 0 0 50px 0;
+  }
+
+  &__form-button {
+    height: 30px;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+  }
+
+  &__title {
+    margin: 10px 0 ;
+    height: 30px;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+  }
+
+  &__description {
+    margin: 0 0 10px 0 ;
+    height: 60px;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+  }
+
+  &__container {
+    display: flex;
+    width: 100%;
+    height: 200vh;
+  }
+
+  &__map {
+    text-align: center;
+    width: 50vw;
+    height: 100%;    
+    background-color: grey;
+
+    &__container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+  }
+
+  &__map2 {
+    text-align: center;
+    width: 50vw;
+    height: 100%;    
+    background-color:rgb(107, 107, 139);
+
+    &__container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly ;
+    }
+  }
 }
 

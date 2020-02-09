@@ -74,13 +74,26 @@ class ToDoList extends React.Component  {
     console.log(this.state)
     return (
       <div className="App">
-        <h1>Hello World</h1>
-        <form onSubmit={this.addItem}>
-          <input type="text" placeholder="Title" name="title" value={this.state.title} onChange={this.titlehandler}></input>
-          <input type="text" placeholder="Description" name="description" value={this.state.description} onChange={this.descriptionhandler}></input>
-          <button type="submit">Add</button>
+        <h1 className="App__header">North One Development Challenge</h1>
+        <form onSubmit={this.addItem} className="App__form">
+          <input className="App__title" type="text" placeholder="Title" name="title" value={this.state.title} onChange={this.titlehandler}></input>
+          <input className="App__description" type="text" placeholder="Description" name="description" value={this.state.description} onChange={this.descriptionhandler}></input>
+          <button className="App__form-button" type="submit">Add</button>
         </form>
-        {this.state.itemList ? this.state.itemList.map(list => (<Task key={list.key} taskDetails={list} deleteItem={this.deleteItem} updateItem={this.updateItem}/>)) : null}
+        <div className="App__container">
+          <div className="App__map">
+            <h1>Project 1</h1>
+            <div className="App__map__container">
+              {this.state.itemList ? this.state.itemList.map(list => (<Task key={list.key} taskDetails={list} deleteItem={this.deleteItem} updateItem={this.updateItem}/>)) : null}
+            </div>
+          </div>
+          <div className="App__map2">
+            <h1>Project 2</h1>
+            <div className="App__map2__container">
+
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
